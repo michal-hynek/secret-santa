@@ -12,7 +12,7 @@ import { RequestHandler } from 'express';
  *          content:
  *              application/json:
  *                  schema:
- *                      "$ref": "#/components/schemas/Person"
+ *                      "$ref": "#/components/schemas/NewPerson"
  *      responses:
  *        '201':
  *          description: Exchange list

@@ -16,14 +16,14 @@
  *              - lastName
  *
  *        Person:
- * 	        allOf:
- * 		        - $ref: "#/components/schemas/NewPerson"
- * 		        - type: object
- *                  properties:
- *                      id: Person Id
- *                      type: number
- *                  required:
- *                      - id
+ *           allOf:
+ *             - $ref: "#/components/schemas/NewPerson"
+ *             - type: object
+ *               properties:
+ *                  id:
+ *                    type: number
+ *               required:
+ *                  - id
  *
  *        ExchangePair:
  *          type: object
