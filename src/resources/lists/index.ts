@@ -5,6 +5,6 @@ import { getList } from './lists.controller';
 
 const router = Router();
 
-router.get('/', expressAsyncHandler(getList));
+router.get('/random', expressAsyncHandler(getList));
 
 export default router;

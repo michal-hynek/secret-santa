@@ -3,7 +3,7 @@ import { RequestHandler } from 'express';
 /**
  * @swagger
  *
- * /lists:
+ * /lists/random:
  *  get:
  *      summary: Get a randomly generated exchange list
  *      description: Generates a random exchange lists
@@ -17,5 +17,5 @@ import { RequestHandler } from 'express';
  */
 export const getList: RequestHandler = async (_req, res) => {
     // TODO: implementation
-    res.status(200).json({});
+    res.status(200).json([]);
 };
