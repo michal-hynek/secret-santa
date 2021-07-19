@@ -2,7 +2,7 @@
 Secret Santa Programming Challenge
 
 ## Description
-Write a program that will assign Secret Santa for each person in the database.  The endpoint that should return list is `POST /lists/random`.
+Write a program that will assign Secret Santa for each person in the database.  The endpoint that should return list is `GET /lists/random`.
 
 ## Run locally
 ```
