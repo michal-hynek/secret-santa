@@ -7,7 +7,8 @@ export const addPerson = async (firstName: string, lastName: string, db: Databas
         // Note: can't use the arrow function because it breaks the reference for this.lastID
         db.run(sql, function (error) {
             if (error) {
-                return reject(error);
+                reject(error);
+                return;
             }
 
             resolve({
@@ -24,6 +25,7 @@ export const getPeople = async (db: Database): Promise<any[]> => {
         db.all('select * from people', (error, rows) => {
             if (error) {
                 reject(error);
+                return;
             }
 
             resolve(rows);
