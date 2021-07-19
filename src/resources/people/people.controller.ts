@@ -1,5 +1,8 @@
 import { RequestHandler } from 'express';
 
+import { db } from '../../server';
+import * as peopleDao from '../../db/people/peopleDao';
+
 /**
  * @swagger
  *
@@ -21,7 +24,36 @@ import { RequestHandler } from 'express';
  *                  schema:
  *                      "$ref": "#/components/schemas/Person"
  */
-export const addPerson: RequestHandler = async (_req, res) => {
-    // TODO: implementation
-    res.status(201).end();
+export const addPerson: RequestHandler = async (req, res, next) => {
+    try {
+        const response = await peopleDao.addPerson(req.body.firstName, req.body.lastName, db);
+        res.status(201).json(response);
+    } catch (error) {
+        next(error);
+    }
+};
+
+/**
+ * @swagger
+ *
+ * /people:
+ *  get:
+ *      summary: Returns all people in the database
+ *      responses:
+ *        '200':
+ *          description: People in the database
+ *          content:
+ *              application/json:
+ *                  schema:
+ *                      type: array
+ *                      items:
+ *                          "$ref": "#/components/schemas/Person"
+ */
+export const getPeople: RequestHandler = async (_req, res, next) => {
+    try {
+        const people = await peopleDao.getPeople(db);
+        res.status(200).json(people);
+    } catch (error) {
+        next(error);
+    }
 };
